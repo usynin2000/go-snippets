@@ -634,4 +634,127 @@ func main() {
 }
 ```
 
-21/27
+### Mutating Maps
+Mutating Maps
+Insert or update an element in map m:
+
+m[key] = elem
+Retrieve an element:
+
+elem = m[key]
+Delete an element:
+
+delete(m, key)
+Test that a key is present with a two-value assignment:
+
+elem, ok = m[key]
+If key is in m, ok is true. If not, ok is false.
+
+If key is not in the map, then elem is the zero value for the map's element type.
+
+Note: If elem or ok have not yet been declared you could use a short declaration form:
+
+elem, ok := m[key]
+```go
+package main
+
+import "fmt"
+
+func main() {
+	m := make(map[string]int)
+
+	m["Answer"] = 42
+	fmt.Println("The value:", m["Answer"])
+
+	m["Answer"] = 48
+	fmt.Println("The value:", m["Answer"])
+
+	delete(m, "Answer")
+	fmt.Println("The value:", m["Answer"])
+
+	v, ok := m["Answer"]
+	fmt.Println("The value:", v, "Present?", ok)
+}
+```
+OUPUT
+The value: 42
+The value: 48
+The value: 0
+The value: 0 Present? false
+
+
+
+### Function values
+Functions are values too. They can be passed around just like other values.
+
+Function values may be used as function arguments and return values.
+```go
+package main
+
+import (
+	"fmt"
+	"math"
+)
+
+func compute(fn func(float64, float64) float64) float64 {
+	return fn(3, 4)
+}
+
+func main() {
+	hypot := func(x, y float64) float64 {
+		return math.Sqrt(x*x + y*y)
+	}
+	fmt.Println(hypot(5, 12))
+
+	fmt.Println(compute(hypot))
+	fmt.Println(compute(math.Pow))
+}
+
+```
+OUTPUT:
+13
+5
+81
+
+### Function closures (Замыкание)
+Замыкание (closure) в Go — это функция, которая захватывает и использует переменные из внешней области видимости, даже после того, как эта область видимости закончила своё выполнение.
+```go
+package main
+
+import "fmt"
+
+func counter() func() int {
+    count := 0 // Локальная переменная, которая будет захвачена замыканием
+    return func() int {
+        count++ // Увеличиваем значение count
+        return count
+    }
+}
+
+func main() {
+    c := counter() // Создаём новое замыкание
+
+    fmt.Println(c()) // 1
+    fmt.Println(c()) // 2
+    fmt.Println(c()) // 3
+
+    d := counter() // Новый независимый счетчик
+    fmt.Println(d()) // 1
+}
+```
+Output:
+1
+2
+3
+1
+
+## Как это работает:
+1. Функция counter создает переменную count, но не возвращает её напрямую, а возвращает функцию.
+
+2. Возвращённая функция использует count, увеличивая его значение.
+
+3. Когда мы вызываем counter(), создаётся новая область памяти для count, и она остаётся доступной внутри замыкания.
+
+4. Если вызвать counter() ещё раз, создастся новый независимый счетчик.
+
+> Это полезно, например, для создания счетчиков, кеширования значений или хранения состояний между вызовами функции.
