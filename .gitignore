@@ -25,3 +25,6 @@ go.work.sum
 .env
 
 .idea/
+*.mp3
+*.mp4
+.DS_Store
