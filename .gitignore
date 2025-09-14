@@ -28,3 +28,6 @@ go.work.sum
 *.mp3
 *.mp4
 .DS_Store
+*.png
+*.webp
+*.jpg

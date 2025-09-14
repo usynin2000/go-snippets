@@ -52,7 +52,7 @@ func ToWebPWithResize(inputPath, outputPath string, lossless bool, quality float
 }
 
 func main() {
-	input := "DSC01345.jpg"
+	input := "Вывески.png"
 	name := strings.TrimSuffix(filepath.Base(input), filepath.Ext(input))
 	output := name + ".webp"
 
