@@ -14,5 +14,4 @@ func main() {
 	c := Counter{10}
 	c.Inc()
 	fmt.Println(c.Value) // 11
-
 }
