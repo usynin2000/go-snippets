@@ -1,4 +1,4 @@
-package sum
+package testing_utils
 
 func Sum(values ...int) int {
 	var sum int

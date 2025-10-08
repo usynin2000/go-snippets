@@ -1,4 +1,4 @@
-package sum
+package testing_utils
 
 import "testing"
 

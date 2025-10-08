@@ -1,4 +1,4 @@
-package foo
+package testing_utils
 
 import "testing"
 
