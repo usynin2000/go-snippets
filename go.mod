@@ -3,6 +3,7 @@ module go-snippets
 go 1.22.4
 
 require (
+	github.com/caarlos0/env/v6 v6.10.1 // indirect
 	github.com/chai2010/webp v1.4.0 // indirect
 	github.com/go-chi/chi v1.5.5 // indirect
 	github.com/go-chi/chi/v5 v5.2.3 // indirect
