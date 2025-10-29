@@ -14,8 +14,8 @@ func main() {
 	}
 
 	// Цикл с шагом
-	for i := 0; i <20; i += 2 {
-		fmt.Printf("Четные числа: %d\n", i )
+	for i := 0; i < 20; i += 2 {
+		fmt.Printf("Четные числа: %d\n", i)
 	}
 
 }
