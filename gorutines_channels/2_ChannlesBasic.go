@@ -35,6 +35,9 @@ func main() {
 	}()
 
 	fmt.Println("Читаем все числа:")
+	
+	fmt.Printf("numbers: %v\n", numbers)
+
 	for num := range numbers {
 		fmt.Printf(" Получено: %d\n", num)
 	}
