@@ -51,3 +51,28 @@ func main() {
 	fmt.Println("All tasks are completed")
 	fmt.Println("Practical example: http handling, handling messages queue")
 }
+
+// Worker 3 handling task 3: Data of task 3
+// Worker 2 handling task 1: Data of task 1
+// Worker 1 handling task 2: Data of task 2
+// Worker 1 handling task 4: Data of task 4
+// Worker 3 handling task 5: Data of task 5
+// Result: Worker 1 completed task 2
+// Result: Worker 3 completed task 3
+// Result: Worker 2 completed task 1
+// Worker 2 handling task 6: Data of task 6
+// Worker 2 handling task 7: Data of task 7
+// Worker 1 handling task 8: Data of task 8
+// Worker 3 handling task 9: Data of task 9
+// Result: Worker 2 completed task 6
+// Result: Worker 1 completed task 4
+// Result: Worker 3 completed task 5
+// Worker 1 handling task 10: Data of task 10
+// Result: Worker 1 completed task 8
+// Result: Worker 3 completed task 9
+// Result: Worker 2 completed task 7
+// Result: Worker 1 completed task 10
+// All tasks are completed
+// Practical example: http handling, handling messages queue
+
+// Controlled concurrency with worker pool
