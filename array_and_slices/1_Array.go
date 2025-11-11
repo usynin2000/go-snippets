@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	var arr [5]int // массив из 5 элементов, по умолчанию заполнен нулями
+	var arr [5]int // array with 5 elements, by default filled with zeros
 	arr[0] = 10 
 	arr[1] = 20
 
@@ -11,4 +11,4 @@ func main() {
 	fmt.Println("Длина массива:", len(arr))
 }
 
-// 💡 Массивы имеют фиксированную длину, менять размер нельзя.
+// 💡 Arrays have a fixed length, cannot be changed.
