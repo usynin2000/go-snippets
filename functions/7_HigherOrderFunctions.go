@@ -33,6 +33,21 @@ func reduceInts(slice []int, initial int, fn func(int, int) int) int {
 	return result
 }
 
+func makeValidator(min, max int) func(int) bool {
+	return func(n int) bool {
+		return n >= min && n <= max
+	}
+}
+
+// func that recives many funcs
+func processWithPipeline(value int, functions ...func(int) int) int {
+	result := value
+	for _, fn := range functions {
+		result = fn(result)
+	}
+	return result
+}
+
 func main() {
 	numbers := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	// Map: double every number
@@ -55,5 +70,21 @@ func main() {
 		return acc + n
 	})
 	fmt.Println("SUM:", sum)
+
+	// Validator
+
+	isValidAge := makeValidator(18, 65)
+	fmt.Println("Age 25 valid:", isValidAge(25))
+	fmt.Println("Age 70 valid:", isValidAge(70))
+
+	// Functions Pipeline
+	addOne := func(n int) int {return n + 1}
+	multipleByTwo := func(n int) int { return n * 2}
+	square := func(n int) int { return n * n}
+
+	result := processWithPipeline(3, addOne, multipleByTwo, square)
+	fmt.Println("Pipeline(3):", result)
+
+
 
 }
