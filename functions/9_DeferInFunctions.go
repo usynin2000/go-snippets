@@ -39,5 +39,4 @@ func main() {
 	fmt.Println("\n=== Example 3 ===")
 	example3()
 
-	
 }
