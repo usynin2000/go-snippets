@@ -6,27 +6,27 @@ import (
 )
 
 func main() {
-	fmt.Println("=== Пример 1: Без горутин ===")
-	// Обычный вызов функции - программа ждет завершения
+	fmt.Println("=== Example 1: Without Gorutines ===")
+	// Ordinary func calling -> program awaits completion
 
-	slowFunction("Функция 1")
-	slowFunction("Функция 2")
+	slowFunction("Func 1")
+	slowFunction("Func 2")
 
-	fmt.Println("Обще функции завершены\n")
+	fmt.Println("Ordinary funcs stopped\n")
 
-	fmt.Println("=== Пример 2: С горутинами ===")
-	// Запускаем функции в горутинах - они выполняются конкурентно или параллельно
-	go slowFunction("Горутина 1")
-	go slowFunction("Горутина 2")
+	fmt.Println("=== Example 2: With Gorutines ===")
+	// Calling funcs with using of gorutines -> they will work in concurenncy 
+	go slowFunction("Gorutine 1")
+	go slowFunction("Gorutine 2")
 
-	// Ждем, чтобы горутины успели выполняться
+	// Just to wait that gorutines completed
 	time.Sleep(2 * time.Second)
-	fmt.Println("Горутины запущены параллельно!\n")
+	fmt.Println("Gorutines completed in parallel\n")
 
-	fmt.Println("=== Пример 3: Проблема без ожидания ===")
-	// Внимание: main может завершиться раньше, чем горутины!
-	go slowFunction("Горутина 3")
-	fmt.Println("main завершается, но горутина может не успеть выполниться!")
+	fmt.Println("=== Example 3: Problem without wating ===")
+	// NB! main func can be finished earlier that gorutines
+	go slowFunction("Gorutine 3")
+	fmt.Println("main is done, however we are not sure that gorutine is finished")
 }
 
 
@@ -42,8 +42,6 @@ func slowFunction(name string) {
 // Разница между последовательным и параллельным выполнением!
 // Горутины запускаются через go
 // Проблема: main может завершиться раньше горутин
-
-
 
 // Конкурентность vs параллелизм
 
