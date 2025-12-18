@@ -6,124 +6,75 @@ import (
 )
 
 func main() {
-	fmt.Println("== Пример 1: Простая передача данных ===")
+	fmt.Println("== Example 1: Simple data transfer ===")
 
-	// Создаем канал для передачи данных
+	// Make a chanel for data transfer
 	ch := make(chan string)
 
-	// Горутины отправляет данные
+	// Goroutine sends data to channel
 	go func() {
-		ch <- "Привет из горутины!"
-		fmt.Println("Данные отправлены")
+		ch <- "Hello from goroutine!"
+		fmt.Println("Data sent")
 	}()
-
-	// Ждем и читаем данные (блокируются до получения)
+	
+	// Reading datat from channel block execution until something is sent to it
 	message := <-ch
-	fmt.Printf("Получено: %s\n\n", message)
+	fmt.Printf("Got from channel: %s\n\n", message)
 
-	fmt.Println("=== Пример 2: Передача чисел ===")
+	fmt.Println("=== Example 2: Sending numbers ===")
 	numbers := make(chan int)
 
-	// Отправляем числа
+	// Sending numbers
 	go func() {
 		for i := 1; i <= 5; i++ {
 			numbers <- i
-			fmt.Printf("Отправлено : %d\n", i)
+			fmt.Printf("Sent: %d\n", i)
 			time.Sleep(200 * time.Millisecond)
 		}
-		close(numbers) // // Закрываем канал после отправки всех данных
+		close(numbers) // Closing channel after sending all data
 	}()
 
-	fmt.Println("Читаем все числа:")
+	fmt.Println("Reading all numbers:")
 	
 	fmt.Printf("numbers: %v\n", numbers)
+	fmt.Printf("numbers type: %T\n", numbers) // chan int
 
 	for num := range numbers {
-		fmt.Printf(" Получено: %d\n", num)
+		fmt.Printf("Got from channel: %d\n", num)
 	}
-	fmt.Println("Все числа получены\n")
+	fmt.Println("All numbers received\n")
 
-	fmt.Println("=== Пример 3: Двустороння связь ===")
+	fmt.Println("=== Exmaple 3: Two-way communication ===")
 	request := make(chan string)
 	response := make(chan string)
 
-	// Горутина-обработчиак
+	// Goroutine-handler
 	go func () {
 		for req := range request {
-			response <- fmt.Sprintf("Ответ на: %s", req)
+			response <- fmt.Sprintf("Response to: %s", req)
 		}
 	}()
 
-	// Отправляем запросы 
-	request <- "Запрос 1"
-	fmt.Printf("Ответ: %s\n", <-response)
+	request <- "Request 1"
+	fmt.Printf("Response: %s\n", <-response)
 
-	request <- "Запрос 2"
-	fmt.Printf("Ответ: %s\n", <-response)
+	request <- "Request 2"
+	fmt.Printf("Response: %s\n", <-response)
 
 	close(request)
 
 }
+// Why we need channels? Can we just store the result of the goroutine in a variable?
+
+// Goroutines run in parallel, and if you just try to write the result of the goroutine into one variable (for example, a global variable), you will get two main problems:
+
+// 1. No synchronization of access:
+// If several goroutines write/read from one variable at the same time, data races occur. This leads to errors that are very difficult to track.
+
+// 2. How to know when the result is ready?
+// Suppose one goroutine processes data, and the main function waits for the result. 
+// You need to somehow "have a signal" when the work is done — and that's where channels come in perfectly. 
+// Reading from a channel blocks execution until something is sent to it — and vice versa.
 
 
-// Создание каналов
-// Отправка и чтение данных
-// Использование range для чтения
-// Двусторонняя связь между горутинами
-
-
-// Три основных примера использвоания каналов:
-
-// 1. Передача строкового сообщения между горутиной и основной функцией
-
-// Создаётся канал ch := make(chan string).
-// Одна горутина отправляет в канал строку.
-// Основная программа читает строку из канала.
-
-// 2. Передача нескольких чисел через канал
-
-// Канал создаётся для int.
-// Горутина отправляет в канал числа по одному, после чего канал закрывается.
-// Главная функция читает числа из канала в цикле с помощью range.
-
-
-// 3. Двусторонняя связь через два канала
-
-// request и response — два разных канала.
-// Горутина-«сервер» ждёт на одном канале запросы, и отправляет ответы через другой.
-// Главная функция «запрашивает» и получает ответы.
-
-
-
-// Почему нельзя просто сохранить результат работы горутины в переменную?
-
-// Горутины исполняются параллельно, 
-// и если ты просто попытаешься записывать результат работы из нескольких горутин в одну переменную 
-// (например, глобальную), возникнут две основные проблемы:
-
-// 1. Нет синхронизации доступа:
-
-// Если несколько горутин одновременно пишут/читают из одной переменной — случаются "гонки данных" (data race). 
-// Это приводит к ошибкам, которые очень сложно отследить.
-
-// 2. Как узнать, что результат готов?
-
-// Допустим, одна горутина обрабатывает данные, а главная функция ждёт результата. 
-// Нужно как-то «иметь сигнал», когда работа завершилась — и вот для этого каналы идеально подходят. 
-// Чтение из канала блокирует выполнение до тех пор, пока туда не будет что-то отправлено — и наоборот.
-
-
-// Зачем вообще нужны каналы?
-
-// Каналы — инструмент для безопасной и синхронизированной передачи данных между горутинами.
-
-// Они решают сразу две проблемы:
-// - Синхронизация: Гарантируют, что данные будут прочитаны только после того, как они реально появились.
-// - Безопасность: Исключают гонки данных без сложных ручных блокировок.
-
-
-// Классическая альтернатива каналам — использовать примитивы синхронизации (mutex, waitgroup и т.д.) и делить переменные. 
-// Но это более сложно, легко ошибиться. Каналы же реализуют концепцию "общения" между потоками, а не "общей памяти".
-// В Go рекомендуемый стиль:
-// > "Не общайтесь через общую память, а разделяйте память через общение"
 // > (Do not communicate by sharing memory; instead, share memory by communicating)
