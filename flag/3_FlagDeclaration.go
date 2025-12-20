@@ -14,7 +14,7 @@ func main() {
 	isThumb := flag.Bool("thumb", false, "create thumb")
 
 
-	// разбор командной строки
+	// parse command line arguments
 	flag.Parse()
 
 	fmt.Println("Image file:", *imgFile)

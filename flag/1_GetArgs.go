@@ -7,10 +7,10 @@ import (
 )
 
 func main() {
-	// первый аргумнт - имя запущенного файла
+	// first argument - name of the running file
 	fmt.Printf("Command: %v/n", os.Args[0])
 
-	// выведем остальные параметры
+	// print other arguments
 	for i, v := range os.Args[1:] {
 		fmt.Println(i+1, v)
 	}
