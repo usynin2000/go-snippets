@@ -1,28 +1,28 @@
-// 1. Что такое интерфейс?
+// 1. What is an interface?
 
-// Интерфейс в Go — это набор методов.
-// Тип «реализует» интерфейс, если у него есть все эти методы (никаких ключевых слов implements не нужно).
+// Interface in Go is a set of methods.
+// Type «implements» interface if it has all these methods (no keywords implements needed).
 package main
 
 import "fmt"
 
-// Интерфейс
+// Interface
 type Shape interface {
 	Area() float64
 }
 
-// Структура
+// Structure
 type Rectangle struct {
 	W, H float64
 }
 
-// Метод для Rectangle
+// Method for Rectangle
 func (r Rectangle) Area() float64{
 	return r.H * r.W
 }
 
 func main() {
-	var s Shape  // переменная типа интерфейса
-	s = Rectangle{10, 5} // Rectangle реализует Shape автоматически
+	var s Shape  // var of interface type
+	s = Rectangle{10, 5} // Rectangle implements Shape automatically
 	fmt.Println(s.Area())
 }

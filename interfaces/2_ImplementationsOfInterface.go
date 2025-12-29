@@ -2,17 +2,17 @@ package main
 
 import "fmt"
 
-// Интерфейс
+// Interface
 type Shape interface {
 	Area() float64
 }
 
-// Структура
+// Structure
 type Rectangle struct {
 	W, H float64
 }
 
-// Метод для Rectangle
+// Method for Rectangle
 func (r Rectangle) Area() float64{
 	return r.H * r.W
 }
@@ -21,7 +21,7 @@ type Circle struct {
 	R float64
 }
 
-// Метод для круга
+// Method for Circle
 func (c Circle) Area() float64 {
 	return 3.14 * c.R * c.R
 }
