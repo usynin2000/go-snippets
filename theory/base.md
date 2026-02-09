@@ -45,7 +45,7 @@ import (
 )
 
 func main() {
-	fmt.Println(math.Pi) // math.pi не будет работать, 
+	fmt.Println(math.Pi) // math.pi не будет работать,
 }
 ```
 
@@ -285,7 +285,8 @@ Constants are declared like variables, but with the const keyword.
 
 Constants can be character, string, boolean, or numeric values.
 
-Constants cannot be declared using the := syntax.
+> Constants cannot be declared using the := syntax.
+
 ```go
 const Pi = 3.14
 ```
