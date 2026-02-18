@@ -3,19 +3,19 @@ package main
 import "fmt"
 
 func main() {
-	// Простой цикл for
+	// Simple loop
 	for i := 0; i < 5; i++ {
-		fmt.Printf("Итерация %d\n", i)
+		fmt.Printf("Iteration %d\n", i)
 	}
 
-	// Цикл с декрементами
+	// Cycle with decrement
 	for i := 10; i > 0; i-- {
-		fmt.Printf("Обртный отсчет: %d\n", i)
+		fmt.Printf("Reverse count: %d\n", i)
 	}
 
-	// Цикл с шагом
+	// Cycle with step
 	for i := 0; i < 20; i += 2 {
-		fmt.Printf("Четные числа: %d\n", i)
+		fmt.Printf("Even numbers: %d\n", i)
 	}
 
 }

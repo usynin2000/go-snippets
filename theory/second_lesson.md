@@ -2,9 +2,9 @@ Go has only one looping construct, the for loop.
 
 The basic for loop has three components separated by semicolons:
 
-the init statement: executed before the first iteration
-the condition expression: evaluated before every iteration
-the post statement: executed at the end of every iteration
+- the init statement: executed before the first iteration
+- the condition expression: evaluated before every iteration
+- the post statement: executed at the end of every iteration
 
 
 > Note: Unlike other languages like C, Java, or JavaScript there are no parentheses surrounding the three components of the for statement and the braces { } are always required.

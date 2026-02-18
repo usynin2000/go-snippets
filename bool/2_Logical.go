@@ -11,5 +11,5 @@ func main() {
 	fmt.Println("!a", !a) // false
 }
 
-// && = И
-// || = ИЛИ
+// && = AND
+// || = OR
