@@ -4,7 +4,7 @@ import "fmt"
 
 func main() {
 	// Slice cycle
-	fruits := []string{"яблоко", "банан", "апельсин"}
+	fruits := []string{"apple", "banana", "orange"}
 
 	for index, fruit := range fruits {
 		fmt.Printf("Индекс %d: %s\n", index, fruit)
