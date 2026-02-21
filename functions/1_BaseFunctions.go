@@ -13,7 +13,8 @@ func divMod(a, b int) (int, int) {
 func main() {
 	fmt.Println("add: ", add(2, 3))
 	q, r := divMod(10, 3)
-	fmt.Println("div:", q, "mod:", r) 
-	// div: division result (quotient) 
+	fmt.Println("div:", q, "mod:", r)
+	
+	// div: division result (quotient)
 	// mod: remainder (modulo)
 }

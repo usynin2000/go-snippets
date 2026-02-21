@@ -3,6 +3,7 @@ package main
 import "fmt"
 
 // Equal reports whether a and b are the same length and contain the same bytes.
+
 func Equal(a, b []byte) bool {
 	if len(a) != len(b) {
 		return false
