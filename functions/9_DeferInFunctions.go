@@ -4,7 +4,6 @@ import "fmt"
 
 // defer - postpone function execution to ending of fuction
 
-
 func example1() {
 	fmt.Println("Beginnig of fuction.")
 	defer fmt.Println("postponed call N 1")
@@ -31,7 +30,7 @@ func example3() {
 func main() {
 	fmt.Println("=== Example 1 ===")
 	example1()
-	
+
 	fmt.Println("\n=== Example 2 ===")
 	example2("Test")
 	example2("")
