@@ -9,7 +9,7 @@ func increment(n *int) {
 func main() {
 	value := 10
 	increment(&value)
-	fmt.Println("После increment:", value)
+	fmt.Println("After increment:", value)
 }
 
-// 👉 Экономия памяти и возможность менять переменные "снаружи".
+// It helps to save memory and gives an ability to change var value from outer scope

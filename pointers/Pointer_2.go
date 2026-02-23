@@ -8,20 +8,19 @@ type Person struct {
 }
 
 func main() {
-	// Создаем переменную типа Person
+	// Make var of type Person
 	p := Person{Name: "Serega", Age: 24}
 
-	// Берем указатель на структуру
+	// Make pointer to var structure
 	ptr := &p
 
-	// Меняем поле через указатель
+	// Change field by using pointer
 	ptr.Age = 150
 
-	fmt.Println("Имя:", p.Name)
-	fmt.Println("Возраст", p.Age)
+	// No need to use pointer dereference like.
+	//  (*ptr).Age == ptr.Age
+
+	fmt.Println("Name:", p.Name)
+	fmt.Println("Age", p.Age)
 
 }
-
-// ВЫВОД: 
-// 👉 Поля структуры можно менять через указатель без явного разыменования 
-// ((*ptr).Age эквивалентно ptr.Age).
