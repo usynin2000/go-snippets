@@ -1,16 +1,16 @@
-// 🔹 Задание 1. Фигуры
+// 🔹 Task 1. Shapes
 
-// Создай интерфейс Shape с методом Area() float64.
-// Сделай два типа:
+// Create a Shape interface with the Area() float64 method.
+// Create two types:
 
 // Rectangle {W, H float64}
 
 // Circle {R float64}
 
-// Оба должны реализовать Shape.
-// В main положи их в срез []Shape и выведи площади.
+// Both must implement Shape.
+// In main, put them in a []Shape slice and print their areas.
 
-// Ожидаемый вывод (приблизительно):
+// Expected output (approximately):
 // Rectangle area: 20
 // Circle area: 28.27
 

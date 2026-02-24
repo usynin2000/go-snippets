@@ -1,4 +1,4 @@
-// Если у нас есть интерфейс, можно узнать, что внутри:
+// If you have interface, you can look what is inside
 package main
 
 import "fmt"
@@ -6,7 +6,7 @@ import "fmt"
 func main() {
 	var i interface{} = "hello"
 
-	// утверждение типа
+	// type assertion
 	s, ok := i.(string)
 	if ok {
 		fmt.Println("String:", s)

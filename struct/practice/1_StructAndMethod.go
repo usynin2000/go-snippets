@@ -1,8 +1,8 @@
-// Создай структуру Rectangle с полями W и H (ширина и высота).
-// Напиши метод Area(), который возвращает площадь.
-// В main создай прямоугольник 10x5 и выведи его площадь.
+// Create a Rectangle struct with fields W and H (width and height).
+// Write a method Area() that returns the area.
+// In main create a rectangle 10x5 and print its area.
 
-// Ожидаемый вывод:
+// Expected output:
 package main
 
 import "fmt"

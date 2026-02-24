@@ -2,6 +2,7 @@
 
 // Interface in Go is a set of methods.
 // Type «implements» interface if it has all these methods (no keywords implements needed).
+
 package main
 
 import "fmt"

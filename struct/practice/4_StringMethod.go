@@ -1,9 +1,9 @@
-// 🔹 Метод String()
+// 🔹 The String() method
 
-// Создай структуру Person с полями Name и Age.
-// Реализуй для неё метод String() string, который возвращает строку вида:
+// Create a Person struct with fields Name and Age.
+// Implement the String() string method for it that returns a string in the format:
 // Name: Alice, Age: 25
-// И выведи через fmt.Println(p).
+// And print it via fmt.Println(p).
 package main
 
 import "fmt"
@@ -20,8 +20,8 @@ func (p Person) String() string {
 func main() {
 	p := Person{"Alice", 25}
 	fmt.Println(p.String())
-	// Это работает, но в Go есть фишка: если структура реализует метод String() string, 
-	// то fmt.Println(p) вызывает его автоматически 🎉
+	// This works, but Go has a special feature: if a struct implements the String() string method,
+	// fmt.Println(p) calls it automatically 🎉
 	fmt.Println(p)
 
 }

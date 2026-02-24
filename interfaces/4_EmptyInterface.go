@@ -1,10 +1,9 @@
-// interface{} (в Go 1.18+ можно писать any) — это пустой интерфейс, который реализует любой тип.
-
-// Часто используется для работы с "любым" значением.
-
 package main
 
 import "fmt"
+
+// from GO version 1.18 + we can use any,
+// interface{} == any
 
 func PrintAny(x interface{}) {
 	fmt.Println(x)

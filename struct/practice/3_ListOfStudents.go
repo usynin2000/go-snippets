@@ -1,24 +1,24 @@
-// 🔹 Задание 3. Список студентов
+// 🔹 Task 3. List of students
 
-// Создай структуру Student с полями Name и Grade (оценка).
-// В main создай срез студентов:
+// Create a Student struct with fields Name and Grade.
+// In main create a slice of students:
 
 // Alice – 5, Bob – 4, Charlie – 3
 
 
-// Пройди по срезу и выведи:
+// Iterate over the slice and print:
 
 // Alice has grade 5
 // Bob has grade 4
 // Charlie has grade 3
 
-// 🔹 Средний балл
+// 🔹 Average grade
 
-// Используй ту же структуру Student и срез из задания 3.
-// Напиши функцию Average(students []Student) float64, которая считает среднюю оценку.
-// Выведи её результат.
+// Use the same Student struct and slice from task 3.
+// Write a function Average(students []Student) float64 that calculates the average grade.
+// Print its result.
 
-// Ожидаемый вывод:
+// Expected output:
 
 package main
 

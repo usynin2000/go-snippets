@@ -1,10 +1,10 @@
-// 🔹 Задание 2. Вложенные структуры
+// 🔹 Task 2. Nested structs
 
-// Создай структуру Person с полями Name и Address.
-// Структура Address должна содержать поля City и Zip.
-// Создай человека "Alice" из города "Moscow" с индексом "101000" и выведи его имя и город.
+// Create a Person struct with fields Name and Address.
+// The Address struct should contain City and Zip fields.
+// Create a person "Alice" from Moscow with zip code "101000" and print their name and city.
 
-// Ожидаемый вывод:
+// Expected output:
 
 // Alice lives in Moscow
 

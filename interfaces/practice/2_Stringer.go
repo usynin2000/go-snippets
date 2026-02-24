@@ -1,7 +1,7 @@
-// 🔹 Задание 2. Stringer
+// 🔹 Task 2. Stringer
 
-// Создай структуру Person {Name string; Age int}.
-// Сделай так, чтобы при печати через fmt.Println(p) выводилось:
+// Create a Person struct {Name string; Age int}.
+// Make it so that when printing via fmt.Println(p) it outputs:
 
 // Alice (25 years old)
 package main
