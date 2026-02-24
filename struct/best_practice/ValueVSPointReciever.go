@@ -5,10 +5,10 @@ import "fmt"
 type Counter struct { Value int}
 
 
-//  Изменяем структуру -> pointer receiver
+// When we change structure -> user pointer receiver
 func (c *Counter) Inc() {c.Value++}
 
-// Только читаем -> value receiver
+// When we read -> value receiver
 func (c Counter) Get() int { return c.Value}
 
 
@@ -25,12 +25,11 @@ func main() {
 	fmt.Println(c.Get())
 
 }
-
-// Value receiver (func (r Rectangle))
-	// Используется, если метод не изменяет структуру.
-	// Работает для маленьких структур (не копируем много данных).
+// Value receiver (func (r Rectange))
+	// Using when method doesn't change structure
+	// Wroks okay for small sctrucre (no need to copy much data)
 
 
 // Pointer receiver (func (r *Rectangle))
-	// Используется, если метод изменяет структуру.
-	// Экономит память для больших структур.
+	// Using  if method change strucre
+	// Save space for big struct

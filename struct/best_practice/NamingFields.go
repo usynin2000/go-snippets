@@ -4,8 +4,8 @@ import "fmt"
 
 
 type Person struct {
-	Name string // доступно из других пакектов
-	age int // только внутри пакета
+	Name string // when we want to use it in other packages
+	age int // only in that package
 }
 
 func main() {

@@ -4,7 +4,7 @@ import "fmt"
 
 
 func main() {
-	// Можно создать структуру без объявления типа
+	// We can make stcut without using type
 
 	p := struct {
 		Name string

@@ -7,12 +7,12 @@ type Rectangle struct {
 	Height int
 }
 
-// метод для Rectangle
+// Method for Rectangle
 func (r Rectangle) Area() int {
 	return r.Width * r.Height
 }
 
 func main() {
 	r := Rectangle{5, 3}
-	fmt.Println("Площадь:", r.Area())
+	fmt.Println("Area:", r.Area())
 }

@@ -9,13 +9,13 @@ type Person struct {
 
 
 func main() {
-	// Полная инициализация
+	// Full init
 	p1 := Person{Name: "Alice", Age: 25}
 
-	// Без указания полей (подрядок, обязателен)
+	// Init without  assinging fields
 	p2 := Person{"Bob", 30}
 
-	// Пустая структура (значения по умолчанию)
+	// Empty struct (by default)
 	p3 := Person{}
 
 	fmt.Println(p1) // {Alice 25}

@@ -10,10 +10,10 @@ type Car struct {
 func main() {
 	c := Car{Brand: "Toyota", Year: 2020}
 
-	// Чтение
+	// Reading
 	fmt.Println(c.Brand)
 
-	// Изменение 
+	// Changing
 	c.Year = 2023
 	fmt.Println(c.Year)
 }

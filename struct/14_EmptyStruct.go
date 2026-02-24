@@ -4,66 +4,37 @@ import "fmt"
 
 
 func main() {
-	set := make(map[string]struct{}) // Это создаёт map (хэш-таблицу), где ключи — string, а значения — пустая структура struct{}.
+	set := make(map[string]struct{}) // This creates map (hash table), where keys are string, and values are empty struct struct{}.
 
 	set["apple"] = struct{}{}
 	set["banana"] = struct{}{}
 
-	// Вставляем два элемента в "множество": "apple" и "banana".
-	// При этом в качестве значения записываем struct{}{} — пустую структуру.
+	// We insert two elements in the "set": "apple" and "banana".
 
 	_, ok := set["apple"]
-	fmt.Println("Есть яблоко (ключ)?", ok) // true 
-	
+	fmt.Println("Is there apple(key)?", ok) // true
+
 }
 
 
-// Почему именно map[string]struct{}
+// Why exactly map[string]struct{}
 
-// В Go нет встроенного типа "Set" (как в Python или Java).
-// Но "множество" можно реализовать через map:
+// In Go there is no type Set (like in python)
 
-// Ключ (string) = элемент множества.
+// But we can make "Set" by using map.
 
-// Значение (struct{}) = просто заглушка.
+// Key (string) is element of our "Set"
 
-// Почему не map[string]bool?
+// Value (struct{}) is just simple dummy
 
-// Можно, но struct{} экономичнее:
+// Can we useap[string]bool?
 
-// struct{} — пустая структура, не занимает памяти (0 байт).
+// Yes we can. But struct{} is more cheap.
 
-// bool занимает 1 байт на каждый элемент.
+// struct{} as empty structure does not use any memory (- bite)
 
-// Поэтому "правильный Go-way" для множеств — map[T]struct{}.
+// bool use 1 byte for every element
 
-
-// 3. Как пользоваться таким "множеством"
-
-// Добавить элемент
-// set["orange"] = struct{}{}
+// That is why the right Go-way for using set in map[T]struct{}
 
 
-// Проверить наличие
-// if _, ok := set["banana"]; ok {
-//     fmt.Println("Есть банан!")
-// }
-
-
-// Удалить
-// delete(set, "apple")
-
-// Пройтись по множеству
-
-// for fruit := range set {
-//     fmt.Println(fruit)
-// }
-
-
-// 4. Итог
-
-// map[string]struct{} — это способ реализовать Set в Go.
-
-// Пустая структура используется, потому что она не занимает памяти → экономия.
-
-// Такой подход — идиоматический в Go (часто встречается в open-source проектах).

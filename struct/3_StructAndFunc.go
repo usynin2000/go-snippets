@@ -7,12 +7,12 @@ type Rectangle struct {
 	Height int
 }
 
-// Функция, которая принимает структуру
+// Func that recieve as papam struct
 func Area (r Rectangle) int {
 	return r.Width * r.Height
 }
 
 func main() {
 	r := Rectangle{Width: 5, Height: 3}
-	fmt.Println("Площадь:", Area(r)) // 15
+	fmt.Println("Area:", Area(r)) // 15
 }

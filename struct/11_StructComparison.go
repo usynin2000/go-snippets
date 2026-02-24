@@ -15,4 +15,4 @@ func main() {
 	fmt.Println(p1 == p3) // false
 }
 
-// Можно сравнивать, если все поля поддерживают сравнение.
+// We can compare if all fields can be compared
