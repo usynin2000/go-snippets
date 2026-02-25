@@ -4,22 +4,20 @@ import "fmt"
 
 func main() {
 	slice := []int{1, 2, 3} // create slice
-	fmt.Println("Срез", slice)
+	fmt.Println("Slice:", slice)
 
 
 	slice = append(slice, 4, 5) // add elements
-	fmt.Println("После append:", slice)
-	fmt.Println("Длина срезы:", len(slice))
+	fmt.Println("After append:", slice)
+	fmt.Println("Length of slice:", len(slice))
 }
 
 // Slice is a dynamic array, can be changed size with append.
 
-
-
-// | Характеристика     | Массив                      | Срез                             |
+// | Characteristic     | Array                       | Slice                            |
 // | ------------------ | --------------------------- | -------------------------------- |
-// | Размер             | Фиксированный               | Динамический                     |
-// | Передача функции   | Копируется полностью        | Передаётся ссылка                |
-// | Использование      | Редко используется напрямую | Практически всегда используются  |
-// | Доступ к элементам | Прямой, через индекс        | Прямой, через индекс или срез    |
-// | Хранение           | Значения массива            | Структура с указателем на массив |
+// | Size               | Fixed                       | Dynamic                          |
+// | Function passing   | Copied fully                | Passed by reference              |
+// | Usage              | Rarely used directly        | Practically always used          |
+// | Access to elements | Direct, through index        | Direct, through index or slice    |
+// | Storage            | Array values                | Structure with pointer to array   |
