@@ -5,17 +5,16 @@ import "fmt"
 func main() {
 	slice := []int{10, 20, 30}
 
-	// по индексам
+	// by indexes
 	for i := 0; i < len(slice); i++ {
 		fmt.Println("index: ", i, "value: ", slice[i])
 	}
 
-	// через range
+	// by using range
 	for i, v := range slice {
 		fmt.Println("index: ", i, "value: ", v)
 	}
 
 
 }
-
-//💡 range — очень удобный способ пройтись по срезу или массиву.
+// range is a very convenient way to iterate through a slice or an array.

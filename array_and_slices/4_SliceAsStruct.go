@@ -18,4 +18,4 @@ func main() {
 	fmt.Println(t.Members)
 }
 
-// 💡 Можно хранить срезы внутри структур и динамически добавлять элементы.
+// 💡 You can store slices inside structs and dynamically add elements.

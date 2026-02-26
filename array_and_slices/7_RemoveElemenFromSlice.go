@@ -6,18 +6,19 @@ import "fmt"
 func main() {
 	slice := []int{1, 2, 3, 4 ,5}
 
-	index := 2 // удалим элемент с индексом 2 (число 3)
+	index := 2 // remove element with index 2 (number 3)
 
-	slice = append(slice[:index], slice[index + 1:]...) // ... берёт слайс и "раскладывает" его элементы как отдельные аргументы функции.
+	slice = append(slice[:index], slice[index + 1:]...)
+	// ... takes a slice and "spreads" its elements as separate arguments of the function.
 
 	fmt.Println(slice) // [1, 2, 4, 5]
 }
 
-// slice[:index] — все элементы до удаляемого.
+// slice[:index] — all elements before the removed one.
 
-// slice[index+1:] — все элементы после удаляемого.
+// slice[index+1:] — all elements after the removed one.
 
-// append(..., ......) — склеиваем их в новый слайс.
+// append(..., ......) — concatenates them into a new slice.
 
 
-// В Go ... в таком контексте называется spread-оператор (или "variadic expansion").
+// In Go ... in this context is called spread operator (or "variadic expansion").

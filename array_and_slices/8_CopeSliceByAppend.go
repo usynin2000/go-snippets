@@ -5,7 +5,7 @@ import "fmt"
 
 func main() {
 	a := []int{1, 2, 3}
-	b := append([]int(nil), a...) //создаем копию,  часто считается более «go-шным» при клонировании.
+	b := append([]int(nil), a...) // creates a copy, is considered more "go-ish" when cloning.
 
 	b[0] = 100
 
