@@ -9,7 +9,7 @@ func main() {
 
 	// mNil["x"] = 10 // panic: assignment to entry in nil map
 
-	// Нужно инициализировать через make
+	// Need to initialize through make
 	mok := make(map[string]int)
 	mok["x"] = 10
 	fmt.Println(mok)

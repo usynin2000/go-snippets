@@ -1,8 +1,8 @@
-// 3. Удаление
+// 3. Delete
 
-// Дан map[string]int{"Alice": 25, "Bob": 30, "Charlie": 40}.
-// Удалить "Bob".
-// Выведи карту.
+// Given map[string]int{"Alice": 25, "Bob": 30, "Charlie": 40}.
+// Delete "Bob".
+// Print map.
 package main
 
 import "fmt"

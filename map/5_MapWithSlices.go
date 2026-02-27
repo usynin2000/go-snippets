@@ -9,7 +9,7 @@ func main() {
 		"english": {"Charlie"},
 	}
 
-	// Добавление ученика в английский класс
+	// Add student to english class
 	classes["english"] = append(classes["english"], "Dave")
 
 	fmt.Println(classes)

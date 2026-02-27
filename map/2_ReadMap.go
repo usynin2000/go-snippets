@@ -5,18 +5,17 @@ import "fmt"
 func main() {
 	ages := map[string]int{"Alice": 25}
 
-	// Доступ по ключу
+	// Access by key
 	fmt.Println("Alice: ", ages["Alice"])
 
-	// Если ключа нет, вернется "нулевое значение" (для int это 0)
-	fmt.Println("Bob (нет ключа): ", ages["Bob"])
+	// If key is not found, return "zero value" (for int it is 0)
+	fmt.Println("Bob (no key): ", ages["Bob"])
 
-
-	// проверка существования ключа:
+	// check if key exists
 	val, ok := ages["Bob"]
 	if ok {
-		fmt.Println("Bob найден:", val)
+		fmt.Println("Bob found:", val)
 	} else {
-		fmt.Println("Bob отсутствует")
+		fmt.Println("Bob not found")
 	}
 }

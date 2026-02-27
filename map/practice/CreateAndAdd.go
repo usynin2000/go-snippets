@@ -1,8 +1,8 @@
-// 1. Создание и добавление
+// 1. Create and add
 
-// Создай пустой map[string]int.
-// Добавь туда ключи "Alice" → 25, "Bob" → 30.
-// Выведи всё содержимое.
+// Create empty map[string]int.
+// Add keys "Alice" → 25, "Bob" → 30.
+// Print all content.
 
 package main
 

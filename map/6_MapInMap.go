@@ -8,7 +8,7 @@ func main() {
 		"group1": {"Alice": 90, "Bob": 80},
 	}
 
-	// Обновляем оценку
+	// Update score
 	scores["group1"]["Alice"] = 95
 
 	fmt.Println(scores)

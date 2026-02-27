@@ -1,7 +1,7 @@
-// 6. Вложенный map
+// 6. Nested map
 
-// Создай map[string]map[string]int, где ключ — имя человека, а значение — карта "предмет → оценка".
-// Например:
+// Create map[string]map[string]int, where key is name of person, and value is map "subject → score".
+// For example:
 
 // {
 //   "Alice": {"math": 5, "english": 4},
@@ -20,5 +20,5 @@ func main() {
 		"Bob": {"math": 3, "english": 5},
 	}
 
-	fmt.Println("Оценка боба по английскому", m["Bob"]["english"])
+	fmt.Println("Bob's score in english", m["Bob"]["english"])
 }

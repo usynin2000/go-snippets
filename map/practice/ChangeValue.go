@@ -1,8 +1,8 @@
-// 5. Замена значений
+// 5. Change value
 
-// Создай map[string]string с переводами слов:
-// "cat" → "кот", "dog" → "собака".
-// Замени перевод "dog" на "пёс".
+// Create map[string]string with translations:
+// "cat" → "cat", "dog" → "dog".
+// Change translation "dog" to "dog".
 package main
 
 import "fmt"

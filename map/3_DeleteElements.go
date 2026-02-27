@@ -5,11 +5,9 @@ import "fmt"
 func main() {
 	ages := map[string]int{"Alice": 25, "Bob": 30}
 
-	// Обновление значения
+	// Update value
 	ages["Alice"] = 26
-
-	// Удалние 
+	// Delete element
 	delete(ages, "Bob")
-
 	fmt.Println(ages)
 }

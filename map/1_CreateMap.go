@@ -3,16 +3,16 @@ package main
 import "fmt"
 
 func main() {
-	// Создание map с литералом
+	// Create map with literal
 	ages := map[string]int{
 		"Alice": 25,
 		"Bob": 30,
 	}
 
-	// Создание пустой  map через make
+	// Create empty map through make
 	m := make(map[string]int)
 
-	//  Добавление элемента
+	// Add element
 	m["Charlie"] = 40
 
 	fmt.Println("ages: ", ages)

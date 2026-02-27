@@ -1,9 +1,9 @@
-// 2. Чтение и проверка
+// 2. Read and check
 
-// Дан map[string]int{"Alice": 25, "Bob": 30}.
-// Попробуй получить возраст "Charlie".
-// Сначала просто выведи результат.
-// А потом сделай через проверку val, ok := m["Charlie"].
+// Given map[string]int{"Alice": 25, "Bob": 30}.
+// Try to get age "Charlie".
+// First, simply print the result.
+// Then, do it through val, ok := m["Charlie"].
 
 package main
 
@@ -18,7 +18,7 @@ func main() {
 	if ok {
 		fmt.Println("Charlise есть, вот возраст его", val)
 	} else {
-		fmt.Println("Мы не знаем кто такой Чарли и сколько ему лет.")
+		fmt.Println("We don't know who Charlie is and how old he is.")
 	}
 
 }
