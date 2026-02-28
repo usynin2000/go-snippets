@@ -1,37 +1,40 @@
-// panic останавливает программу (как исключение).
-// recover позволяет «поймать» панику и продолжить выполнение.
+// panic stops the program (like an exception).
+// recover allows to catch a panic and continue execution.
 
 package main
 
 import "fmt"
 
 func mayPanic() {
-	panic("что-то пошло не так")
+	panic("something went wrong")
 }
 
 func main() {
 	defer func() {
 		if r := recover(); r != nil {
-			fmt.Println("Перехвачено:", r)
+			fmt.Println("Recovered:", r)
 		}
 	}()
 
-	fmt.Println("Перед паникой")
+	fmt.Println("Before panic")
 	mayPanic()
-	fmt.Println("После паники (не выполняется без recover)")
+	fmt.Println("After panic (not executed without recover)")
 }
 
-
-// Когда в mayPanic() вызывается panic, 
-// выполнение текущей функции (main) прерывается и начинается раскрутка стека. 
-// На каждом уровне выполняются отложенные (defer) функции.
-
-// ⚠️ Важный момент: recover() не «возвращает» программу обратно на строчку после mayPanic(). 
-// Оно только останавливает падение. 
-// То есть выполнение продолжается после defer, а не после mayPanic().
-
-// Если хочется, чтобы после recover() программа продолжила работать, 
-// нужно обернуть «опасный» код в отдельную функцию.
+// Before panic
+// Recovered: something went wrong
 
 
-// !!!! recover не «возвращает» тебя внутрь функции, где случилась паника — оно только останавливает падение программы.
+// When panic is called in mayPanic(),
+// execution of the current function (main) is interrupted and the stack is unwound.
+// At each level, deferred (defer) functions are executed.
+
+// ⚠️ Important moment: recover() does not «return» the program back to the line after mayPanic().
+// It only stops the program from falling.
+// So execution continues after defer, not after mayPanic().
+
+// If you want to continue the program after recover(),
+// you need to wrap the «dangerous» code in a separate function.
+
+
+// !!!! recover does not «return» you inside the function where the panic happened — it only stops the program from falling.
