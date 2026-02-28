@@ -8,12 +8,12 @@ type MyError struct {
 }
 
 func (e MyError) Error() string {
-	return fmt.Sprintf("Ошибка %d: %s", e.Code, e.Msg)
+	return fmt.Sprintf("Error %d: %s", e.Code, e.Msg)
 }
 
 func doSomething(fail bool) error {
 	if fail {
-		return MyError{404, "Не найдено"}
+		return MyError{404, "Not found"}
 	}
 	return nil
 }
