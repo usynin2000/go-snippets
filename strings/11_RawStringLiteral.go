@@ -3,9 +3,9 @@ package main
 import "fmt"
 
 func main() {
-	text := `Это многострочная строка.
-Она сохраняет переносы
- и пробелы.
+	text := `This is a multi-line string.
+It preserves line breaks
+ and spaces.
 	`
 	fmt.Println(text)
 }

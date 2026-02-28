@@ -7,6 +7,6 @@ import (
 
 func main() {
 	fmt.Println("apple" == "apple") // true
-	fmt.Println("apple" < "banana") // true (сравнение по Unicode)
-	fmt.Println(strings.EqualFold("Go", "gO")) // true без учета регистра
+	fmt.Println("apple" < "banana") // true (comparison by Unicode)
+	fmt.Println(strings.EqualFold("Go", "gO")) // true without considering the case
 }

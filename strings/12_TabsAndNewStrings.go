@@ -3,6 +3,6 @@ package main
 import "fmt"
 
 func main() {
-	s := "Первая строка\n\tВторая с отступом."
+	s := "First line\n\tSecond with indentation."
 	fmt.Println(s)
 }
