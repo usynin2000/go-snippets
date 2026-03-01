@@ -8,8 +8,8 @@ import (
 func readFile(path string) error {
 	_, err := os.ReadFile(path)
 	if err != nil {
-		//  добавляем контекст и оборачиваем оргинальнюу ошибку 
-		return fmt.Errorf("ошибка при чтении файла %s: %w", path, err)
+		// add context and wrap the original error
+		return fmt.Errorf("error reading file %s: %w", path, err)
 	}
 	return nil
 }
@@ -17,7 +17,7 @@ func readFile(path string) error {
 func main() {
 	err := readFile("notfound.txt")
 	if err != nil {
-		fmt.Println("Произошла ошибка:", err)
+		fmt.Println("An error occurred:", err)
 	}
 }
-// Произошла ошибка: ошибка при чтении файла notfound.txt: open notfound.txt: no such file or directory
+// An error occurred: error reading file notfound.txt: open notfound.txt: no such file or directory

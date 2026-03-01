@@ -9,7 +9,7 @@ import (
 func openFile(path string) error {
 	_, err := os.Open(path)
 	if err != nil {
-		return fmt.Errorf("Не удалость открыть файл: %w", err)
+		return fmt.Errorf("failed to open file: %w", err)
 	}
 	return nil
 }
@@ -17,14 +17,17 @@ func openFile(path string) error {
 func main() {
 	err := openFile("notfound.txt")
 
-	// Проверяем - именно ли "файл не найден"
+	// Check if it is exactly "file not found"
 	if errors.Is(err, os.ErrNotExist){
-		fmt.Println("Файл отсутствует")
+		fmt.Println("File not found")
 	}
 
-	// Проверяем через errors.As (например *os.PathError)
+	// Check through errors.As (for example *os.PathError)
 	var pathErr *os.PathError
 	if errors.As(err, &pathErr) {
-		fmt.Println("Ошибка связана с файлом:", pathErr.Path)
+		fmt.Println("Error associated with file:", pathErr.Path)
 	}
 }
+
+// File not found
+// Error associated with file: notfound.txt
