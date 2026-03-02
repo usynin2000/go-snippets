@@ -1,3 +1,5 @@
+// here some questions about 2nd exmaple
+
 package main
 
 import (
@@ -16,9 +18,9 @@ func main() {
 		ch <- "Hello from goroutine!"
 		fmt.Println("Data sent")
 	}()
-	
-	// Reading datat from channel block execution until something is sent to it
-	message := <-ch
+
+	// Reading data from channel block execution until something is sent to it
+	message := <- ch
 	fmt.Printf("Got from channel: %s\n\n", message)
 
 	fmt.Println("=== Example 2: Sending numbers ===")
@@ -35,7 +37,7 @@ func main() {
 	}()
 
 	fmt.Println("Reading all numbers:")
-	
+
 	fmt.Printf("numbers: %v\n", numbers)
 	fmt.Printf("numbers type: %T\n", numbers) // chan int
 
@@ -72,8 +74,8 @@ func main() {
 // If several goroutines write/read from one variable at the same time, data races occur. This leads to errors that are very difficult to track.
 
 // 2. How to know when the result is ready?
-// Suppose one goroutine processes data, and the main function waits for the result. 
-// You need to somehow "have a signal" when the work is done — and that's where channels come in perfectly. 
+// Suppose one goroutine processes data, and the main function waits for the result.
+// You need to somehow "have a signal" when the work is done — and that's where channels come in perfectly.
 // Reading from a channel blocks execution until something is sent to it — and vice versa.
 
 

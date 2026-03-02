@@ -15,13 +15,13 @@ func main() {
 	fmt.Println("Ordinary funcs stopped\n")
 
 	fmt.Println("=== Example 2: With Gorutines ===")
-	// Calling funcs with using of gorutines -> they will work in concurenncy 
+	// Calling funcs with using of gorutines -> they will work in concurenncy
 	go slowFunction("Gorutine 1")
 	go slowFunction("Gorutine 2")
 
 	// Just to wait that gorutines completed
 	time.Sleep(2 * time.Second)
-	fmt.Println("Gorutines completed in parallel\n")
+	fmt.Println("Gorutines completed in parallel (in concurenncy)\n")
 
 	fmt.Println("=== Example 3: Problem without wating ===")
 	// NB! main func can be finished earlier that gorutines
@@ -32,8 +32,8 @@ func main() {
 
 func slowFunction(name string) {
 	for i := 1; i <= 3; i++ {
-		fmt.Printf("%s: шаг: %d\n", name, i)
+		fmt.Printf("%s: step: %d\n", name, i)
 		time.Sleep(500 * time.Millisecond)
 	}
-	fmt.Printf("%s: завершена\n", name)
+	fmt.Printf("%s: is done\n", name)
 }
