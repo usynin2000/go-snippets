@@ -156,3 +156,14 @@ u := User{"Alice", 25}
 fmt.Println(u.string, u.int) // Alice 25
 
 ```
+
+
+11. Optional/Nullable поля через указатели
+Для полей, которые могут быть "не заданы":
+```go
+type Update struct {
+    Name *string  // nil = не обновлять, &"x" = обновить
+    Age  *int     // nil = не обновлять, &0 = установить 0
+}
+```
+Всегда проверяйте != nil перед разыменованием!
