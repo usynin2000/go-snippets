@@ -1,6 +1,3 @@
-// Все три воркера работают параллельно (или псевдопараллельно, если у тебя одно ядро).
-// Порядок вывода может быть разным при каждом запуске.
-
 package main
 
 import (
@@ -8,56 +5,62 @@ import (
 	"sync"
 )
 
+// All three workers work in parallel
+// (or pseudo-parallel if you have one core).
+// The order of output may be different each time you run it.
+
 func worker(id int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	fmt.Printf("Worker %d is working\n", id)
 }
 
-// id — номер рабочего (просто для примера).
+// id - worker number (just for example).
 
-// wg — указатель на WaitGroup, общий для всех горутин.
+// wg - pointer to WaitGroup, common for all goroutines.
 
-// defer wg.Done() — гарантирует, что при выходе из функции будет вызван wg.Done(), уменьшающий счётчик активных задач на 1.
+// defer wg.Done() - guarantees that when the function exits,
+//  wg.Done() will be called, decreasing the counter of active tasks by 1.
 
-// fmt.Printf(...) — просто печатает сообщение.
+// fmt.Printf(...) - simply prints a message.
 
 func main() {
-	var wg sync.WaitGroup // var wg sync.WaitGroup — создаётся группа ожидания.
+	var wg sync.WaitGroup // var wg sync.WaitGroup - creates a waiting group.
 	for i := 1; i <= 3; i++ {
-		wg.Add(1) // увеличивает счётчик задач на 1 (говорим: «будет ещё одна горутина»).
-		go worker(i, &wg) // запускает функцию worker как горутинию, то есть в отдельном потоке выполнения
+		wg.Add(1) // increases the counter of tasks by 1 (we say: "there will be another goroutine").
+		go worker(i, &wg) // starts the worker function as a goroutine,
+		// that is, in a separate thread of execution
 	}
-	
+
 	wg.Wait()
-	// После запуска всех горутин вызывается wg.Wait() — блокирует выполнение main, пока все горутины не вызовут wg.Done().
+	// After starting all goroutines, wg.Wait() is called - it blocks the execution of main,
+	// until all goroutines call wg.Done().
 
 	fmt.Println("all workers are done\n")
 
-	// Когда счётчик дойдёт до 0, программа продолжает выполнение и печатает "all workers are done".
+	// When the counter reaches 0, the program continues execution and prints "all workers are done".
 }
 
-// Она запускает три параллельных горутины
-// и затем ждёт, пока все они закончат работу, прежде чем вывести
+// It starts three parallel goroutines
+// and then waits until all of them finish their work, before printing
 // all workers are done.
 
 
-// Горутина (goroutine) — это лёгкий поток выполнения (lightweight thread), 
-// который создаётся с помощью ключевого слова go в Go.
+// Goroutine (goroutine) is a lightweight thread of execution,
+// which is created with the go keyword in Go.
 
-// 🧩 Проще говоря:
+// 🧩 Simply put:
 
-// Когда ты пишешь
+// When you write
 
 // go someFunction()
 
-// Go не ждёт, пока someFunction() закончится —
-// она запускается в фоне, а основная программа продолжает работать дальше.
+// Go does not wait for someFunction() to finish -
+// it starts in the background, and the main program continues working further.
 
+// 💡 The main difference from regular threads:
 
-// 💡 Главное отличие от обычных потоков (threads):
+// - Goroutines are very lightweight - you can start thousands (even millions) simultaneously.
+// - They are managed by the Go scheduler, not the operating system.
+// - One OS thread can serve many goroutines, switching between them as needed.
 
-// - Горутины очень лёгкие — можно запустить тысячи (даже миллионы) одновременно.
-// - Они управляются планировщиком Go, а не операционной системой.
-// - Один поток ОС может обслуживать множество горутин, переключая их по мере необходимости.
-
-// (Go использует т.н. M:N scheduler, где M — количество системных потоков, а N — количество горутин.)
+// (Go uses the so-called M:N scheduler, where M is the number of OS threads, and N is the number of goroutines.)

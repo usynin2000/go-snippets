@@ -1,5 +1,3 @@
-// here some questions about 2nd exmaple
-
 package main
 
 import (
@@ -44,6 +42,9 @@ func main() {
 	for num := range numbers {
 		fmt.Printf("Got from channel: %d\n", num)
 	}
+	// The order of reading from channel is not guaranteed
+	// It is not a problem if we don't need to know the order
+
 	fmt.Println("All numbers received\n")
 
 	fmt.Println("=== Exmaple 3: Two-way communication ===")
@@ -68,10 +69,14 @@ func main() {
 }
 // Why we need channels? Can we just store the result of the goroutine in a variable?
 
-// Goroutines run in parallel, and if you just try to write the result of the goroutine into one variable (for example, a global variable), you will get two main problems:
+// Goroutines run in parallel, and if you just try to write the result of the goroutine into one variable
+// (for example, a global variable),
+// you will get two main problems:
 
 // 1. No synchronization of access:
-// If several goroutines write/read from one variable at the same time, data races occur. This leads to errors that are very difficult to track.
+// If several goroutines write/read from one variable at the same time,
+// data races occur.
+// This leads to errors that are very difficult to track.
 
 // 2. How to know when the result is ready?
 // Suppose one goroutine processes data, and the main function waits for the result.
