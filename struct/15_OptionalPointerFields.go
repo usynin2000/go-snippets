@@ -20,6 +20,9 @@ type UserUpdateRequest struct {
 	Email *string `json:"email,omitempty`
 }
 
+type PersonExample struct {
+	Name *string `json:"name"`
+}
 
 // Helpers for comfortable creating porinters (good to have in tests of API)
 func ptrString(s string) *string {return &s}
@@ -51,6 +54,16 @@ func main() {
 	if req3.Name != nil {
 		fmt.Println("Name =", *req3.Name) // Bob
 	}
+
+	// Example 4: Marshal - pointer while marshalling use value, not address
+	// encodin/json deferences pointers automatically and use value by address
+
+	name := "Alice"
+	p := PersonExample{Name: &name}
+	data, _ := json.Marshal(p)
+	fmt.Println(string(data)) // {"name": "Alice"} -> value not address
+
+
 }
 
 
