@@ -29,10 +29,11 @@
 
 [+-] 14. **`gorutines_channels/`** - горутины, каналы, worker pools (7 файлов)
 [x] 15. **`WaitGroup.go`** - синхронизация
-[+-]16. **`context/`** - управление контекстом (критично для реальных проектов!)
+[x]16. **`context/`** - управление контекстом (критично для реальных проектов!)
 
 ## **Фаза 6: Веб и HTTP (День 9-10)** 🌐
 
+Need to add "github.com/cenkalti/backoff/v4" 
 17. **`net-http/`** - HTTP сервер, роутинг, middleware (11 файлов + chi, resty)
 18. **`MiniServer.go`**, **`server.go`** - практические примеры
 
