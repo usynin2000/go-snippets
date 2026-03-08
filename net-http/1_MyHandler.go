@@ -2,22 +2,19 @@ package main
 
 import "net/http"
 
-// Создаётся пустая структура MyHandler. 
-// Она будет реализовывать интерфейс http.Handler.
+// We are creating the empy sttruct MyHandler
+// It will be implement interface http.Handler
 type MyHandler struct{}
 
 func (h MyHandler) ServeHTTP(res http.ResponseWriter, req *http.Request) {
 	data := []byte("Привет!")
 	res.Write(data)
 }
-// У структуры MyHandler определён метод ServeHTTP.
-// Этот метод обязателен для реализации интерфейса http.Handler.
-// Аргументы:
-// - res http.ResponseWriter — объект, через который мы пишем ответ клиенту (отправляем данные).
-// - req *http.Request — объект с информацией о запросе (метод, заголовки, путь и т.д.).
-// Внутри:
-// - Создаём []byte("Привет!").
-// - res.Write(data) записывает эти данные в ответ. В итоге браузер/клиент получит строку "Привет!".
+// Struct MyHander has method ServerHTTP
+// This is method is required to implement interfact http.Handler
+// Args:
+// - res http.ResponseWriter - object, which we use to write response for client (sending data)
+// - req *http.Request — object with data about request (with method, headers and path)
 
 
 func main() {
@@ -30,27 +27,13 @@ func main() {
 }
 
 
-// В этом коде:
-
-// type MyHandler struct{}
-// мы завели её только ради того, чтобы:
-
-// На неё "повесить" метод ServeHTTP.
-
-// У Go нет "свободных" методов — метод всегда должен принадлежать какому-то типу.
-
-// Поэтому мы создаём тип (MyHandler) и делаем для него метод ServeHTTP.
-
-// Чтобы этот тип соответствовал интерфейсу http.Handler.
-
-// Интерфейс http.Handler выглядит так:
+// That how interface http.Handler lookds like
 // type Handler interface {
 //     ServeHTTP(ResponseWriter, *Request)
 // }
 
 
 // Как только у MyHandler появляется метод с такой сигнатурой — он автоматически считается http.Handler.
-
 
 // Но почему именно пустая структура?
 
@@ -62,7 +45,7 @@ func main() {
 // type MyHandler int
 // или
 // type MyHandler string
-// — лишь бы метод можно было привязать. 
+// — лишь бы метод можно было привязать.
 // Но пустая структура логичнее: она ничего не весит и явно показывает, что данные нам не нужны.
 
 
@@ -74,5 +57,5 @@ func main() {
 //     w.Write([]byte("Привет!"))
 // }))
 
-// Здесь мы не создаём структуру, а сразу используем функцию-обёртку (http.HandlerFunc), 
+// Здесь мы не создаём структуру, а сразу используем функцию-обёртку (http.HandlerFunc),
 // которая превращает обычную функцию в http.Handler.

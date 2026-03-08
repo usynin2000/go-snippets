@@ -33,8 +33,8 @@
 
 ## **Фаза 6: Веб и HTTP (День 9-10)** 🌐
 
-Need to add "github.com/cenkalti/backoff/v4" 
-17. **`net-http/`** - HTTP сервер, роутинг, middleware (11 файлов + chi, resty)
+Need to add "github.com/cenkalti/backoff/v4"
+[+-] 17. **`net-http/`** - HTTP сервер, роутинг, middleware (11 файлов + chi, resty)
 18. **`MiniServer.go`**, **`server.go`** - практические примеры
 
 ## **Фаза 7: Продвинутые темы (День 11-12)** 🎓
