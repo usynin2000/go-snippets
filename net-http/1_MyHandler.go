@@ -33,29 +33,20 @@ func main() {
 // }
 
 
-// Как только у MyHandler появляется метод с такой сигнатурой — он автоматически считается http.Handler.
+// Once MyHandler has a method with such a signature, it automatically becomes http.Handler.
+// Why exactly an empty structure?
 
-// Но почему именно пустая структура?
+// Because we don't need to store any fields.
 
-// Потому что нам не нужно хранить никаких полей.
+// We simply use MyHandler as a "carrier of the method".
 
-// Мы просто используем MyHandler как "носитель метода".
-
-// Можно было бы и так:
-// type MyHandler int
-// или
-// type MyHandler string
-// — лишь бы метод можно было привязать.
-// Но пустая структура логичнее: она ничего не весит и явно показывает, что данные нам не нужны.
-
-
-// Альтернатива
-// В Go есть и другой, более короткий способ:
+// Alternative
+// There is another, shorter way in Go:
 // http.ListenAndServe(
 // 	":8080",
 // 	http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 //     w.Write([]byte("Привет!"))
 // }))
 
-// Здесь мы не создаём структуру, а сразу используем функцию-обёртку (http.HandlerFunc),
-// которая превращает обычную функцию в http.Handler.
+// Here we don't create a structure, but directly use a function wrapper (http.HandlerFunc),
+// which transforms a regular function into http.Handler.

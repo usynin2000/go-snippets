@@ -23,32 +23,23 @@ func main() {
 
 // Что такое mux?
 // ServeMux = multiplexer (мультиплексор).
-// Это встроенный роутер в Go, который умеет:
+// It's a built-in router in Go, which can:
 
 // "сопоставлять" URL-пути с обработчиками (handler’ами),
 
 // и передавать запрос нужной функции.
 
 
-// Зачем он нужен
+// Why it's needed?
 
-// Если бы мы использовали только http.ListenAndServe(":8080", handler), то весь сервер обрабатывал бы одним обработчиком (как в твоём первом примере).
+// If we would use only http.ListenAndServe(":8080", handler), the whole server would be handled by one handler (as in your first example).
 
-// Но когда нам нужно несколько страниц/эндпоинтов — нужен роутер, который решает:
+// When we need multiple pages/endpoints — we need a router, which solves:
 
-// если путь / → вызвать mainPage,
+// if the path is / → call mainPage,
 
-// если путь /api → вызвать apiPage,
+// if the path is /api → call apiPage,
 
-// если путь /static/... → вызвать обработчик для статики, и т. д.
+// if the path is /static/... → call the handler for static files, and so on.
 
-// Вот этим и занимается ServeMux.
-
-
-// Это нам это даёт
-
-// Разделение логики — можно писать отдельные обработчики для разных страниц.
-
-// Гибкость — можно подключить кастомные маршрутизаторы (например, Gorilla Mux) вместо стандартного.
-
-// Читаемость — код явно показывает: /api → этот handler, / → другой handler.
+// This is what ServeMux does.

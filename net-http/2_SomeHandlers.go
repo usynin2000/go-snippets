@@ -3,11 +3,11 @@ package main
 import "net/http"
 
 func mainPage(res http.ResponseWriter, req *http.Request) {
-	res.Write([]byte("Привет!"))
+	res.Write([]byte("Hello!"))
 }
 
 func apiPage(res http.ResponseWriter, req *http.Request) {
-	res.Write([]byte("Это страница /api."))
+	res.Write([]byte("This page is /api."))
 }
 
 func main() {
