@@ -11,12 +11,12 @@ func reqUrlQuery(res http.ResponseWriter, req *http.Request) {
 	for k, v := range req.Header {
 		body += fmt.Sprintf("%s: %v\r\n", k, v)
 	}
-	
+
 	body += "Query parameters =========\r\n"
 	for k, v := range req.URL.Query() {
 		body += fmt.Sprintf("%s: %v\r\n", k, v)
 	}
-	
+
 	res.Write([]byte(body))
 }
 
@@ -54,22 +54,18 @@ func main() {
 	}
 }
 
-// запусти http://localhost:8080/?id=12345&name=John%20Doe&filter=town&filter=country.
+// curl http://localhost:8080/?id=12345&name=John%20Doe&filter=town&filter=country
 
 
 // req.URL.Query()
-// Берёт параметры только из URL (часть после ?).
-
-// GET /query?name=Tom&age=20 → будут распарсены name, age.
+// Takes params frm URL
 
 
 // req.ParseForm()
-// объединяет данные из query string и тела формы (
-// если Content-Type подходит: application/x-www-form-urlencoded и POST.
+// combines data from query string and body form (
+// if Content-Type : application/x-www-form-urlencoded и POST
 // req.Form = URL.Query() + тело запроса.
 
 // curl --location 'http://localhost:8080/parse?test_2=info2' \
 // --header 'Content-Type: application/x-www-form-urlencoded' \
 // --data-urlencode 'test=info'
-
-//  Вот так например будет и квери и body через urlencode принимать

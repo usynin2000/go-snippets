@@ -11,8 +11,8 @@ const form = `<html>
     </head>
     <body>
         <form action="/" method="post">
-            <label>Логин</label><input type="text" name="login">
-            <label>Пароль<input type="password" name="password">
+            <label>Login</label><input type="text" name="login">
+            <label>Password<input type="password" name="password">
             <input type="submit" value="Login">
         </form>
     </body>
@@ -31,7 +31,7 @@ func mainPage(w http.ResponseWriter, r *http.Request) {
 		} else {
 			http.Error(w, "Bad login or password", http.StatusUnauthorized)
 		}
-		return 
+		return
 	} else {
 		io.WriteString(w, form)
 	}

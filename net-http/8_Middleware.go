@@ -8,7 +8,7 @@ import (
 func middleware(next http.Handler) http.Handler {
 
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Serega-Ebet", "da")
+		w.Header().Set("Serega-Legend", "yes")
 		fmt.Println("In middleware")
 
 		next.ServeHTTP(w, r)
@@ -16,7 +16,7 @@ func middleware(next http.Handler) http.Handler {
 }
 
 func rootHandler(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Ti gorish kak agonya"))
+	w.Write([]byte("You look fine tonight"))
 }
 
 func main() {

@@ -10,17 +10,17 @@ import (
 var bearer = "Beater <Token>"
 
 func main() {
-	// Создаем новый запрос
+	// create new query
 	req, err := http.NewRequest("GET", "https://yandex.ru", nil)
 	if err != nil {
 		log.Println(err)
 		return
 	}
 
-	// Добавляем авторизацию
+	// Add auth
 	req.Header.Add("Authorization", bearer)
 
-	// создаем клиента
+	// Create client
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
@@ -35,7 +35,7 @@ func main() {
 
 	body, err := io.ReadAll(resp.Body)
 
-	// продолжаем работу
+	// continue work
 	fmt.Println(string(body))
 
 

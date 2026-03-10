@@ -11,22 +11,21 @@ type Subj struct {
 }
 
 func JSONHandler(w http.ResponseWriter, req *http.Request) {
-	//  собираем данные
+	// take data
 	subj := Subj{"Milk", 50}
 
-	// кодируем в json
+	// encode to json
 	resp, err := json.Marshal(subj)
 	if err != nil {
 		http.Error(w, err.Error(), 500)
-		return 
+		return
 	}
 
-	// устанавливаем заголовок Content-Type
-	// для передачи клиенту информации, кодированный в JSON
+	// Set header Content-Type
 	w.Header().Set("content-type", "application/json")
-	// устанавливаем код 200
+	// set status code 200
 	w.WriteHeader(http.StatusOK)
-	// пишем тело ответа
+	// write to the body of response
 	w.Write(resp)
 }
 

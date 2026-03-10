@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	// простейшни сервер, которому доступны все файлы в поддиректории static
+	// simple server which can use all file in dir statis
 	err := http.ListenAndServe(":8080", http.FileServer(http.Dir(".")))
 	if err != nil {
 		panic(err)
