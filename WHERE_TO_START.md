@@ -41,7 +41,7 @@ Need to add "github.com/cenkalti/backoff/v4"
 
 [x] 19. **`generics/`** - дженерики (7 файлов)
 [x] 20. **`tags/`** - теги структур
-21. **`logs/`** - логирование (logrus, zap)
+[x] 21. **`logs/`** - логирование (logrus, zap)
 22. **`testing_utils/`** - тестирование
 
 ## **Фаза 8: Дополнительно** 📚

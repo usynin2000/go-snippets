@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	// создаём файл info.log и обрабатываем ошибку, если что-то пошло не так
+	// create file info.log and handle error if something went wrong
 	file, err := os.OpenFile(
 		"info.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644,
 	)
@@ -14,13 +14,13 @@ func main() {
 		log.Fatal(err)
 	}
 
-	// откладываем закрытие файла
+	// defer closing file
 
 	defer file.Close()
 
 	log.SetOutput(file)
 
-	 // добавляем флаги для вывода даты, времени, имени файла
+	 // add flags for output date, time, file name
 	 log.SetFlags(log.Ldate | log.Ltime | log.Lshortfile)
 	 log.Print("loggin in file GO")
 
