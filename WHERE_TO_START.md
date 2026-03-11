@@ -34,12 +34,12 @@
 ## **Фаза 6: Веб и HTTP (День 9-10)** 🌐
 
 Need to add "github.com/cenkalti/backoff/v4"
-[+-] 17. **`net-http/`** - HTTP сервер, роутинг, middleware (11 файлов + chi, resty)
-18. **`MiniServer.go`**, **`server.go`** - практические примеры
+[x] 17. **`net-http/`** - HTTP сервер, роутинг, middleware (11 файлов + chi, resty)
+[x] 18. **`MiniServer.go`**, **`server.go`** - практические примеры
 
 ## **Фаза 7: Продвинутые темы (День 11-12)** 🎓
 
-19. **`generics/`** - дженерики (7 файлов)
+[x] 19. **`generics/`** - дженерики (7 файлов)
 20. **`tags/`** - теги структур
 21. **`logs/`** - логирование (logrus, zap)
 22. **`testing_utils/`** - тестирование

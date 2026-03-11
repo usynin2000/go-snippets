@@ -7,10 +7,9 @@ import (
 	"net/http"
 )
 
-
 type RequestData struct {
 	Name string `json:"name"`
-	Age int `json:"age"`
+	Age  int    `json:"age"`
 }
 
 type ResponseData struct {
@@ -19,27 +18,26 @@ type ResponseData struct {
 
 func handler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Error(w, "Только POST поддерживается", http.StatusMethodNotAllowed)
+		http.Error(w, "Only POST is supported", http.StatusMethodNotAllowed)
 		return
 	}
 
 	body, err := io.ReadAll(r.Body)
 	if err != nil {
-		http.Error(w, "Ошибка чтения запроса", http.StatusBadRequest)
+		http.Error(w, "Error reading request", http.StatusBadRequest)
 		return
 	}
 	defer r.Body.Close()
 
 	var data RequestData
-
 	err = json.Unmarshal(body, &data)
 
 	if err != nil {
-		http.Error(w, "Ошибка разбора JSON", http.StatusBadRequest)
+		http.Error(w, "Error parsing JSON", http.StatusBadRequest)
 	}
 
 	resp := ResponseData{
-		Message : fmt.Sprintf("Привет %s. Тебе %d лет.", data.Name, data.Age),
+		Message: fmt.Sprintf("Hello %s. You are %d years old.", data.Name, data.Age),
 	}
 
 	w.Header().Set("Content-Type", "application/json")
