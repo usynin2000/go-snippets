@@ -7,40 +7,39 @@ import (
 )
 
 type MyType struct {
-	User      string    `json:"user,omitempty" example:"Bob"` // Здесь у поля User есть два тега: json и example.
+	User      string    `json:"user,omitempty" example:"Bob"` // Here User field has two tags: json and example.
 	CreatedAt time.Time `json:"created_at"`
 }
 
 const (
-	targetField = "User" // имя поля, о котором нужно получить информацию
-	targetTag   = "json" // тег, значение которго нужно получить
+	targetField = "User" // name of field to get information about
+	targetTag   = "json" // tag to get value of
 )
 
 func main() {
 
 	obj := MyType{}
 
-	// получаем GO-описание типа
-	objType := reflect.TypeOf(obj) // Получение информации о типе
+	// get GO-description of type
+	objType := reflect.TypeOf(obj) // get information about type
 
-	fmt.Println("objType", objType) // main.MyType  
-	// объект типа reflect.Type, который содержит метаданные о типе MyType.
+	fmt.Println("objType", objType) // main.MyType
 
-	// ищем поле по имени
+	// find field by name
 	field, ok := objType.FieldByName(targetField)
-	// FieldByName() находит поле структуры по его имени и возвращает reflect.StructField.
+	// FieldByName() finds field by name and returns reflect.StructField.
 	if !ok {
 		panic(fmt.Errorf("field (%s): not found", targetField))
 	}
 
-	fmt.Println("field:", field) // 
+	fmt.Println("field:", field) //
 
-	// ищем тег по имени
+	// find tag by name
 	tagValue, ok := field.Tag.Lookup(targetTag) // Tag.Lookup() извлекает значение конкретного тега из поля.
 	if !ok {
 		panic(fmt.Errorf("tag (%s) for field (%s): not found", targetTag, targetField))
 	}
 
-	fmt.Printf("Значение тега %s поля %s: %s\n", targetTag, targetField, tagValue)
-	fmt.Printf("Теги поля %s: %s\n", targetField, field.Tag)
+	fmt.Printf("Value of tag %s of field %s: %s\n", targetTag, targetField, tagValue)
+	fmt.Printf("Tags of field %s: %s\n", targetField, field.Tag)
 }

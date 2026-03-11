@@ -6,14 +6,14 @@ import (
 )
 
 type User struct {
-	Name	string	`json:"name"` // имя поля в JSON
-	Age		int		`json:"age,omitempty` // пропускается, если 0
-	Email	string 	`json:"-"` //  исключить поле из JSON
+	Name	string	`json:"name"` // field name in JSON
+	Age		int		`json:"age,omitempty"` // skipped if 0 or not passed
+	Email	string 	`json:"-"` // exclude field from JSON
 }
 
 
 func main() {
-	u := User{Name: "Alice", Age: 0, Email: "usynin.s00@mail.ru"}
-	data, _ := json.Marshal(u) // сделает json  но в байтах [123 34 110 97 109 101 34 58]
+	u := User{Name: "Serega", Age: 0, Email: "usynin.s00@mail.ru"}
+	data, _ := json.Marshal(u)
 	fmt.Println(string(data))
 }

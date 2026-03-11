@@ -12,8 +12,8 @@ type FieldInfo struct {
 }
 
 type Form struct {
-	Username string `label:"Имя пользователя" help:"Введите логин"`
-	Age 	 int 	`label:"Возраст" help:"Введите ваш возраст"`
+	Username string `label:"Username" help:"Enter your username"`
+	Age 	 int 	`label:"Age" help:"Enter your age"`
 }
 
 func ParseTags(v interface{}) []FieldInfo {
@@ -38,4 +38,4 @@ func main() {
 	}
 }
 
-// Так можно строить динамические формы, UI, документацию и т.д.
+// This way you can build dynamic forms, UI, documentation and etc.

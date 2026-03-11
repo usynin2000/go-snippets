@@ -6,23 +6,23 @@ import (
 )
 
 type Address struct {
-	City	string	`json:"city"`
-	State	string	`json"state"`
+	City  string `json:"city"`
+	State string `json"state"`
 }
 
 type User struct {
-	Name string `json:"name"`
+	Name    string  `json:"name"`
 	Address Address `json:"address"`
 }
 
 func printTags(t reflect.Type, prefix string) {
 	fmt.Println("t", t)
-	for i:= 0; i < t.NumField(); i++ {
+	for i := 0; i < t.NumField(); i++ {
 		f := t.Field(i)
 		fieldName := prefix + f.Name
 
 		if f.Type.Kind() == reflect.Struct {
-			printTags(f.Type, fieldName+".") // рекурсия 
+			printTags(f.Type, fieldName+".") // recursion
 		} else {
 			fmt.Printf("%s -> json:%q\n", fieldName, f.Tag.Get("json"))
 		}
