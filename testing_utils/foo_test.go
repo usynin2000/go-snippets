@@ -11,4 +11,4 @@ func TestFooFunc(t *testing.T) {
 	}
 }
 
-// выполнить можно просто вызвав go test
+// can be run simply by calling go test or go test -v

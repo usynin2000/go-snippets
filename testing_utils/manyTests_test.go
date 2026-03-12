@@ -45,4 +45,4 @@ func TestSum(t *testing.T) {
 	}
 }
 
-//  go test -v  запустит и покажет все кейсы
+//  go test -v  will run and show all cases one by one
