@@ -18,7 +18,6 @@ func worker(id int, tasks <-chan Task, results chan<- string) {
 		fmt.Printf("Worker %d handling task %d: %s\n", id, task.ID, task.Data)
 		time.Sleep(500 * time.Millisecond)
 
-
 		// Sending result
 		results <- fmt.Sprintf("Worker %d completed task %d", id, task.ID)
 	}

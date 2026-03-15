@@ -17,7 +17,7 @@ func main() {
 	close(ch) // closing channel
 
 	// Reading all data
-	
+
 	fmt.Println("Reading form closed channel:")
 	for i := 0; i < 4; i++ {
 		value, ok := <-ch
@@ -74,10 +74,3 @@ func main() {
 
 
 }
-
-
-// Что показывает:
-// Как закрывать каналы
-// Проверка закрытия через ok
-// range автоматически завершается при закрытии
-// Закрытие как сигнал горутинам
